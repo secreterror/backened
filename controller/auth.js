@@ -123,5 +123,5 @@ exports.forgotPassword =async (req,res,next)=>{
 }
 
 exports.resetPassword =(req,res,next)=>{
-    res.send("reset password route")
+    res.send("Backened for binary veda task")
 }
