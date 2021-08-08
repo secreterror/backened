@@ -17,6 +17,7 @@ const UserSchema= new mongoose.Schema({
     userName:{
         type:String,
         required:[true,"Please provide a username."],
+        unique:[true,"Username already taken."],
         minlength:[5,'Length of password should be atleast 5.'],
     },
     password:{

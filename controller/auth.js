@@ -4,11 +4,11 @@ const sendEmail=require('../utils/sendEmail')
 exports.register=async (req,res,next)=>{
     const {userName,password,lastName,firstName,email}=req.body;
     try{
-        const userAlready= await User.findOne({email})
+        const userAlready= await User.findOne({userName})
         if(userAlready){
             return res.status(404).json({
                 success:false,
-                error:{userName:'Email Already Exist'}
+                error:{userName:'Username already exist'}
             })
         }
         const user=await User.create({
@@ -30,9 +30,9 @@ exports.register=async (req,res,next)=>{
 
 exports.login = async (req,res,next)=>{
 
-    const {email,password}=req.body
+    const {userName,password}=req.body
 
-    if(!email){
+    if(!userName){
         res.status(404).json({
             success:false,
             error:"Username is required."
@@ -47,14 +47,14 @@ exports.login = async (req,res,next)=>{
 
     try {
 
-        const user= await User.findOne({email})
+        const user= await User.findOne({userName})
         .select('+password')
         .exec();
 
         if(!user){
             return res.status(404).json({
                 success:false,
-                error:{userName:'Email does not exist'}
+                error:{userName:'Username does not exist'}
             })
         }
         console.log(password)
