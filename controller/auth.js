@@ -16,7 +16,8 @@ exports.register=async (req,res,next)=>{
         })
         res.status(201).json({
             success:true,
-            token:user.getSignedToken()
+            token:user.getSignedToken(),
+            userName:userName
         })
     }catch(err){
         res.status(500).json({
@@ -70,7 +71,8 @@ exports.login = async (req,res,next)=>{
         }
         res.status(201).json({
             success:true,
-            token:user.getSignedToken()
+            token:user.getSignedToken(),
+            userName:userName
         })
 
     }catch (error) {
@@ -123,5 +125,5 @@ exports.forgotPassword =async (req,res,next)=>{
 }
 
 exports.resetPassword =(req,res,next)=>{
-    res.send("Backened for binary veda task")
+    res.send("Backened for Binary Veda Task")
 }
