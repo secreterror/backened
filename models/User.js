@@ -36,6 +36,7 @@ const UserSchema= new mongoose.Schema({
             message:()=>'Please provide a valid email'
         },
         required:[true, "Please provide an email."],
+        unique:[false]
 
     },
     resetPasswordToken:{
