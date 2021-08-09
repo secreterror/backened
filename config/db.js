@@ -1,5 +1,5 @@
 const mongoose =require('mongoose')
-MONGO_URI='mongodb+srv://admin:heyadmin@cluster0.sdbhy.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+MONGO_URI='PUT_YOUR_URI'
 const connectDB= async() =>{
     console.log('heee')
     await mongoose.connect(MONGO_URI,{
